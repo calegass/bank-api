@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env.example
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - nest_init
+
+  app:
+    build:
+      context: .
+    restart: always
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env.example
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/dist
+    networks:
+      - nest_init
+
+volumes:
+  postgres_data:
+    name: postgres_data
+
+networks:
+  nest_init:

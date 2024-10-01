@@ -1,0 +1,35 @@
+POST {{BASE_URL}}/users
+Content-Type: application/json
+
+{
+  "name": "Anakin Skywalker",
+  "cpf_cnpj": "12345678901",
+  "email": "anakin@mail.com",
+  "password": "123456",
+  "balance": 1000
+}
+
+###
+
+POST {{BASE_URL}}/users
+Content-Type: application/json
+
+{
+"name": "Darth Vader S/A",
+"cpf_cnpj": "12345678901234",
+"email": "vader@mail.com",
+"password": "654321",
+"balance": 100
+}
+
+###
+
+POST {{BASE_URL}}/transfers
+Content-Type: application/json
+
+{
+  "sender_password": "123456",
+  "sender_cpf_or_email": "12345678901",
+  "receiver_cpf_cnpj_or_email": "12345678901234",
+  "amount": 100
+}

@@ -1,0 +1,21 @@
+meta {
+  name: createUser (CNPJ)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Darth Vader S/A",
+    "cpf_cnpj": "12345678901234",
+    "email": "vader@mail.com",
+    "password": "654321",
+    "balance": 100
+  }
+}

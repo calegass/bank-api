@@ -1,0 +1,21 @@
+meta {
+  name: createUser (CPF)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Anakin Skywalker",
+    "cpf_cnpj": "12345678901",
+    "email": "anakin@mail.com",
+    "password": "123456",
+    "balance": 1000
+  }
+}
